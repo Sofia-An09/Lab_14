@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Група ПП-25 _ Антіпова Софія _ Завдання 4.4</title>
+</head>
+<body>
+<h1>Завдання 4.4 - Операції з масивами фруктів</h1>
+<script>
+    "use strict";
+
+    // Створюємо масиви
+    let fruits = ['apple', 'pineapple', 'mango', 'melon', 'grape'];
+    let citrus = ['orange', 'lemon', 'lime'];
+
+    // 1. Масив fruits
+    document.write("<h3>1. Масив fruits:</h3>");
+    document.write("<p>" + fruits.join(", ") + "</p>");
+
+    // 2. Масив citrus
+    document.write("<h3>2. Масив citrus:</h3>");
+    document.write("<p>" + citrus.join(", ") + "</p>");
+
+    // 3. Об'єднаний масив fruits
+    fruits = fruits.concat(citrus);
+    document.write("<h3>3. Об'єднаний масив fruits:</h3>");
+    document.write("<p>" + fruits.join(", ") + "</p>");
+
+    // 4. Вставка після mango
+    let mangoIndex = fruits.indexOf('mango');
+    fruits.splice(mangoIndex + 1, 0, 'pear', 'cherry', 'plum', 'raspberry', 'strawberry');
+    document.write("<h3>4. Масив fruits після вставки після mango:</h3>");
+    document.write("<p>" + fruits.join(", ") + "</p>");
+
+    // 5. Видалення останніх 3 елементів
+    fruits.splice(-3);
+    document.write("<h3>5. Масив fruits після видалення останніх 3 елементів:</h3>");
+    document.write("<p>" + fruits.join(", ") + "</p>");
+
+    // 6. Сортування в алфавітному порядку
+    let fruitsSorted = [...fruits].sort();
+    document.write("<h3>6. Масив fruits, відсортований в алфавітному порядку:</h3>");
+    document.write("<p>" + fruitsSorted.join(", ") + "</p>");
+
+    // 7. Зворотний алфавітний порядок
+    let fruitsReverseSorted = [...fruits].sort().reverse();
+    document.write("<h3>7. Масив fruits у зворотному алфавітному порядку:</h3>");
+    document.write("<p>" + fruitsReverseSorted.join(", ") + "</p>");
+
+    // 8. Сортування за довжиною слів
+    let fruitsSortedByLength = [...fruits].sort((a, b) => a.length - b.length);
+    document.write("<h3>8. Масив fruits, відсортований за довжиною слів:</h3>");
+    document.write("<p>" + fruitsSortedByLength.join(", ") + "</p>");
+</script>
+</body>
+</html>

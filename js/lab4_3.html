@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Група ПП-25 _ Антіпова Софія _ Завдання 4.3</title>
+</head>
+<body>
+<h1>Завдання 4.3 - Робота з методами масивів</h1>
+<div id="results"></div>
+
+<script>
+    "use strict";
+    // Формуємо масив з 15 випадкових чисел (від 1 до 100)
+    let arr = [];
+    for (let i = 0; i < 15; i++) {
+        arr.push(Math.floor(Math.random() * 100) + 1);
+    }
+    // Задаємо значення D і C
+    let D = 50;
+    let C = 30;
+    // Знаходимо суму чисел, менших за D (використовуючи filter і reduce)
+    let sumLessThanD = arr.filter(num => num < D).reduce((sum, num) => sum + num, 0);
+    // Знаходимо кількість чисел на парних місцях (індекси 0, 2, 4, ...), які більші за C
+    // Парні місця = парні індекси (0, 2, 4, 6, ...)
+    let countEvenIndexGreaterThanC = arr.filter((num, index) => index % 2 === 0 && num > C).length;
+
+    // Виводимо результати
+    let output = "";
+    output += "<h3>🍫 Початковий масив:</h3>";
+    output += "<p>" + arr.join("  ") + "</p>";
+
+    output += "<h3>🍫 Задані значення:</h3>";
+    output += "<p>D = " + D + "</p>";
+    output += "<p>C = " + C + "</p>";
+
+    output += "<h3>🍫 Результати:</h3>";
+    output += "<p><strong>Сума чисел, менших за D (" + D + "):</strong> " + sumLessThanD + "</p>";
+
+    // Показуємо які числа враховані
+    let numbersLessThanD = arr.filter(num => num < D);
+    output += "<p><em>Числа менші за D: " + numbersLessThanD.join(", ") + "</em></p>";
+
+    output += "<p><strong>Кількість чисел на парних місцях (індекси 0,2,4...), більших за C (" + C + "):</strong> " + countEvenIndexGreaterThanC + "</p>";
+
+    // Показуємо які числа на парних місцях
+    let numbersOnEvenIndex = arr.filter((num, index) => index % 2 === 0);
+    output += "<p><em>Числа на парних місцях: " + numbersOnEvenIndex.join(", ") + "</em></p>";
+
+    let numbersOnEvenIndexGreaterC = arr.filter((num, index) => index % 2 === 0 && num > C);
+    output += "<p><em>З них більших за C: " + numbersOnEvenIndexGreaterC.join(", ") + "</em></p>";
+
+    document.getElementById("results").innerHTML = output;
+    </script>
+</body>
+</html>

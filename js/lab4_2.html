@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Група ПП-25 _ Антіпова Софія _ Завдання 4.2</title>
+</head>
+<body>
+<h1>Завдання 4.2 - Пошук мінімального елемента та обмін</h1>
+<script>
+    // Формуємо масив з 15 випадкових чисел (наприклад, ціни на шоколадки від 10 до 100 грн)
+    let prices = [];
+    for (let i = 0; i < 15; i++) {
+        prices[i] = Math.floor(Math.random() * 91) + 10; // числа від 10 до 100
+    }
+
+    // Виводимо початковий масив
+    document.write('<h3>Початковий масив (ціни на шоколадки, грн):</h3>');
+    document.write('<p>' + prices.join('  ') + '</p>');
+
+    // Знаходимо мінімальний елемент (не використовуючи Math.min)
+    let minValue = prices[0];
+    let minIndex = 0;
+    for (let i = 1; i < prices.length; i++) {
+        if (prices[i] < minValue) {
+            minValue = prices[i];
+            minIndex = i;
+        }
+    }
+    document.write('<h3>Мінімальний елемент:</h3>');
+    document.write('<p>Значення: ' + minValue + ', Індекс: ' + minIndex + '</p>');
+
+    // Міняємо місцями мінімальний елемент з попереднім
+    if (minIndex > 0) {
+        let temp = prices[minIndex - 1];
+        prices[minIndex - 1] = prices[minIndex];
+        prices[minIndex] = temp;
+
+        document.write('<h3>Масив після обміну мінімального елемента з попереднім:</h3>');
+        document.write('<p>' + prices.join('  ') + '</p>');
+        document.write('<p><em>Поміняли місцями елементи на позиціях ' + (minIndex - 1) + ' та ' + minIndex + '</em></p>');
+    } else {
+        document.write('<h3>Результат:</h3>');
+        document.write('<p>Мінімальний елемент знаходиться на першій позиції, обмін неможливий.</p>');
+    }
+</script>
+</body>
+</html>
